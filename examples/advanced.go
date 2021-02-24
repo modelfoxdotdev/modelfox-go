@@ -17,7 +17,7 @@ func main() {
 
 	// Load the model from the file.
 	options := tangram.ModelOptions{
-		BaseURL: tangramURL,
+		TangramURL: tangramURL,
 	}
 	model, err := tangram.LoadModelFromFile("examples/heart_disease.tangram", &options)
 	if err != nil {
@@ -47,7 +47,7 @@ func main() {
 	predictOptions := tangram.PredictOptions{
 		Threshold: 0.25,
 	}
-	output := model.PredictOne(input, &predictOptions)
+	output := model.PredictOne(input, nil)
 
 	// Print out the input and output.
 	fmt.Println("Input:", input)

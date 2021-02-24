@@ -16,6 +16,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"time"
 	"unsafe"
 )
 
@@ -43,6 +44,7 @@ type Input map[string]interface{}
 type Output struct {
 	Value         float32            `json:"value"`
 	ClassName     string             `json:"className"`
+	Probability   float32            `json:"probability"`
 	Probabilities map[string]float32 `json:"probabilities"`
 }
 
@@ -211,7 +213,9 @@ func (m Model) predictionEvent(options LogPredictionOptions) event {
 	var output map[string]interface{}
 	if options.Output.ClassName != "" {
 		output = map[string]interface{}{
-			"className": options.Output.ClassName,
+			"className":     options.Output.ClassName,
+			"probability":   options.Output.Probability,
+			"probabilities": options.Output.Probabilities,
 		}
 	} else {
 		output = map[string]interface{}{
@@ -225,6 +229,7 @@ func (m Model) predictionEvent(options LogPredictionOptions) event {
 		"options":    options.Options,
 		"input":      options.Input,
 		"output":     output,
+		"date":       time.Now().Format(time.RFC3339),
 	}
 }
 
@@ -234,5 +239,6 @@ func (m Model) trueValueEvent(options LogTrueValueOptions) event {
 		"modelId":    m.ID(),
 		"identifier": options.Identifier,
 		"trueValue":  options.TrueValue,
+		"date":       time.Now().Format(time.RFC3339),
 	}
 }
