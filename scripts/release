@@ -1,0 +1,2 @@
+git clone git@github.com:tangramxyz/tangram-go
+rsync --archive --delete --exclude .git --exclude tangram-go . tangram-go
