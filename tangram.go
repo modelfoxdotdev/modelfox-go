@@ -1,7 +1,7 @@
 package tangram
 
-// #cgo linux CFLAGS: -I${SRCDIR}/libtangram/x86_64-unknown-linux-gnu
-// #cgo linux LDFLAGS: -L${SRCDIR}/libtangram/x86_64-unknown-linux-gnu -ltangram -ldl -lm
+// #cgo linux CFLAGS: -I${SRCDIR}/libtangram/x86_64-unknown-linux-musl
+// #cgo linux LDFLAGS: -L${SRCDIR}/libtangram/x86_64-unknown-linux-musl -ltangram -ldl -lm
 // #cgo darwin CFLAGS: -I${SRCDIR}/libtangram/x86_64-apple-darwin
 // #cgo darwin LDFLAGS: -L${SRCDIR}/libtangram/x86_64-apple-darwin -ltangram
 // #cgo windows CFLAGS: -I${SRCDIR}/libtangram/x86_64-pc-windows-gnu

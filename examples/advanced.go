@@ -19,7 +19,7 @@ func main() {
 	options := tangram.ModelOptions{
 		BaseURL: tangramURL,
 	}
-	model, err := tangram.LoadModelFromFile("heart_disease.tangram", &options)
+	model, err := tangram.LoadModelFromFile("examples/heart_disease.tangram", &options)
 	if err != nil {
 		log.Fatal(err)
 	}
