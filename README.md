@@ -26,7 +26,6 @@ input := tangram.Input{
 output := model.PredictOne(input, nil)
 
 fmt.Println("Output:", output.ClassName)
-}
 ```
 
 For more information, [read the docs](https://www.tangram.xyz/docs).
