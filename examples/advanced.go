@@ -47,7 +47,7 @@ func main() {
 	predictOptions := tangram.PredictOptions{
 		Threshold: 0.25,
 	}
-	output := model.PredictOne(input, nil)
+	output := model.PredictOne(input, &predictOptions)
 
 	// Print out the input and output.
 	fmt.Println("Input:", input)

@@ -40,7 +40,7 @@ type PredictOptions struct {
 // Input is the input to a model for making predictions.
 type Input map[string]interface{}
 
-// Output is the output of calling Predict
+// Output is the output of calling Predict.
 type Output struct {
 	Value         float32            `json:"value"`
 	ClassName     string             `json:"className"`
@@ -111,7 +111,7 @@ func (m Model) ID() string {
 	return id
 }
 
-// PredictOne makes a prediction a single input.
+// PredictOne makes a prediction on a single input.
 func (m Model) PredictOne(input Input, options *PredictOptions) Output {
 	return m.Predict([]Input{input}, options)[0]
 }
@@ -225,11 +225,11 @@ func (m Model) predictionEvent(options LogPredictionOptions) event {
 	return event{
 		"type":       "prediction",
 		"modelId":    m.ID(),
+		"date":       time.Now().Format(time.RFC3339),
 		"identifier": options.Identifier,
 		"options":    options.Options,
 		"input":      options.Input,
 		"output":     output,
-		"date":       time.Now().Format(time.RFC3339),
 	}
 }
 

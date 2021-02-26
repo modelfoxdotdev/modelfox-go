@@ -61,3 +61,8 @@ $ TANGRAM_URL=http://localhost:8080 go run examples/advanced.go
 Now if you refresh the production stats or production metrics tabs for the model you uploaded, you should see predictions and true values being reported.
 
 For more information on reporting and monitoring, [read the docs](https://www.tangram.xyz/docs).
+
+### Notes
+
+* On Alpine Linux, Tangram for Go requires the `libgcc` library to be installed. You can run `apk add libgcc` to install it.
+
