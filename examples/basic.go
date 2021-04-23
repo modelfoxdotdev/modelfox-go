@@ -8,8 +8,8 @@ import (
 )
 
 func main() {
-	// Load the model from the file.
-	model, err := tangram.LoadModelFromFile("examples/heart_disease.tangram", nil)
+	// Load the model from the path.
+	model, err := tangram.LoadModelFromPath("examples/heart_disease.tangram", nil)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -17,7 +17,7 @@ func main() {
 	defer model.Destroy()
 
 	// Create an example input matching the schema of the CSV file the model was trained on. Here the data is just hard-coded, but in your application you will probably get this from a database or user input.
-	input := tangram.Input{
+	input := tangram.PredictInput{
 		"age":                                  63,
 		"gender":                               "male",
 		"chest_pain":                           "typical angina",
@@ -33,10 +33,14 @@ func main() {
 		"thallium_stress_test":                 "fixed defect",
 	}
 
-	// Make the prediction!
-	output := model.PredictOne(input, nil)
+	// Create the options
+	options := tangram.PredictOptions{
+		Threshold: 0.5,
+	}
 
-	// Print out the input and output.
-	fmt.Println("Input:", input)
-	fmt.Println("Output:", output.ClassName)
+	// Make the prediction!
+	output := model.PredictOne(input, &options)
+
+	// Print the output.
+	fmt.Println("Output:", output)
 }

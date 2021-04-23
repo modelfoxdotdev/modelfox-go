@@ -9,17 +9,17 @@ import (
 )
 
 func main() {
-	// If you are running the Tangram reporting and monitoring web app on your own server you can pass the URL to it with the TANGRAM_URL environment variable.
+	// If you are running the Tangram app on your own server you can pass the URL to it with the TANGRAM_URL environment variable.
 	tangramURL, present := os.LookupEnv("TANGRAM_URL")
 	if !present {
 		tangramURL = "https://app.tangram.xyz"
 	}
 
-	// Load the model from the file.
-	options := tangram.ModelOptions{
+	// Load the model from the path.
+	options := tangram.LoadModelOptions{
 		TangramURL: tangramURL,
 	}
-	model, err := tangram.LoadModelFromFile("examples/heart_disease.tangram", &options)
+	model, err := tangram.LoadModelFromPath("examples/heart_disease.tangram", &options)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -27,7 +27,7 @@ func main() {
 	defer model.Destroy()
 
 	// Create an example input matching the schema of the CSV file the model was trained on. Here the data is just hard-coded, but in your application you will probably get this from a database or user input.
-	input := tangram.Input{
+	input := tangram.PredictInput{
 		"age":                                  63,
 		"gender":                               "male",
 		"chest_pain":                           "typical angina",
@@ -43,34 +43,32 @@ func main() {
 		"thallium_stress_test":                 "fixed defect",
 	}
 
-	// Make the prediction using a custom threshold chosen on the "Tuning" page of the Tangram reporting and monitoring web app.
+	// Make the prediction using a custom threshold chosen on the "Tuning" page of the Tangram app.
 	predictOptions := tangram.PredictOptions{
-		Threshold: 0.25,
+		Threshold:                   0.5,
+		ComputeFeatureContributions: true,
 	}
-	output := model.PredictOne(input, &predictOptions)
+	output := model.PredictOne(input, &predictOptions).(tangram.BinaryClassificationPredictOutput)
 
-	// Print out the input and output.
-	fmt.Println("Input:", input)
-	fmt.Println("Output:", output.ClassName)
+	// Print the output.
+	fmt.Println("Output:", output)
 
-	// Log the prediction. This will allow us to view production stats in the Tangram reporting and monitoring web app.
-	predictionEvent := tangram.LogPredictionOptions{
-		Identifier: "John Doe",
-		Options:    predictOptions,
+	// Log the prediction.
+	err = model.LogPrediction(tangram.LogPredictionArgs{
+		Identifier: "71762b29-2296-4bf9-a1d4-59144d74c9d9",
 		Input:      input,
+		Options:    predictOptions,
 		Output:     output,
-	}
-	err = model.LogPrediction(predictionEvent)
+	})
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	// Later on, if we get an official diagnosis for the patient, we can log the true value for the prior prediction. Make sure to match the `identifier` from the former prediction.
-	trueValueEvent := tangram.LogTrueValueOptions{
-		Identifier: "John Doe",
+	// Later on, if we get an official diagnosis for the patient, log the true value. Make sure to match the `identifier`.
+	err = model.LogTrueValue(tangram.LogTrueValueArgs{
+		Identifier: "71762b29-2296-4bf9-a1d4-59144d74c9d9",
 		TrueValue:  "Positive",
-	}
-	err = model.LogTrueValue(trueValueEvent)
+	})
 	if err != nil {
 		log.Fatal(err)
 	}
