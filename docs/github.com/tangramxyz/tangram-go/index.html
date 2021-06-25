@@ -1,0 +1,1209 @@
+<!DOCTYPE html><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="theme-color" content="#375EAB"/>
+
+  <title>tangram-go - Documentation</title>
+
+
+
+
+
+
+
+
+
+
+<link type="text/css" rel="stylesheet" href="../../../lib/style.css"/></head>
+<body>
+
+<div id="lowframe" style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="../../../">Documentation</a></div>
+<div class="top-heading" id="heading-narrow"><a href="../../../">Documentation</a></div>
+<!--<a href="#" id="menu-button"><span id="menu-button-arrow">▽</span></a>-->
+<div id="menu">
+<a href="../../../" style="margin-right: 10px;">Package Index</a>
+</div>
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package tangram
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import &#34;<a href="https://github.com/tangramxyz/tangram-go" target="_blank">github.com/tangramxyz/tangram-go</a>&#34;</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+				<dd><a href="#pkg-subdirectories">Subdirectories</a></dd>
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+				<dd><a href="#pkg-constants">Constants</a></dd>
+			
+			
+			
+				
+				<dd><a href="#Version">func Version() string</a></dd>
+			
+			
+				
+				<dd><a href="#BagOfWordsFeatureContribution">type BagOfWordsFeatureContribution</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Bigram">type Bigram</a></dd>
+				
+				
+			
+				
+				<dd><a href="#BinaryClassificationPredictOutput">type BinaryClassificationPredictOutput</a></dd>
+				
+				
+			
+				
+				<dd><a href="#FeatureContributionEntry">type FeatureContributionEntry</a></dd>
+				
+				
+			
+				
+				<dd><a href="#FeatureContributionType">type FeatureContributionType</a></dd>
+				
+				
+			
+				
+				<dd><a href="#FeatureContributions">type FeatureContributions</a></dd>
+				
+				
+			
+				
+				<dd><a href="#IdentityFeatureContribution">type IdentityFeatureContribution</a></dd>
+				
+				
+			
+				
+				<dd><a href="#LoadModelOptions">type LoadModelOptions</a></dd>
+				
+				
+			
+				
+				<dd><a href="#LogPredictionArgs">type LogPredictionArgs</a></dd>
+				
+				
+			
+				
+				<dd><a href="#LogTrueValueArgs">type LogTrueValueArgs</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Model">type Model</a></dd>
+				
+					
+					<dd>    <a href="#LoadModelFromBytes">func LoadModelFromBytes(data []byte, options *LoadModelOptions) (*Model, error)</a></dd>
+				
+					
+					<dd>    <a href="#LoadModelFromPath">func LoadModelFromPath(path string, options *LoadModelOptions) (*Model, error)</a></dd>
+				
+				
+					
+					<dd>    <a href="#Model.Destroy">func (m Model) Destroy()</a></dd>
+				
+					
+					<dd>    <a href="#Model.EnqueueLogPrediction">func (m Model) EnqueueLogPrediction(args LogPredictionArgs)</a></dd>
+				
+					
+					<dd>    <a href="#Model.EnqueueLogTrueValue">func (m Model) EnqueueLogTrueValue(args LogTrueValueArgs)</a></dd>
+				
+					
+					<dd>    <a href="#Model.FlushLogQueue">func (m Model) FlushLogQueue() error</a></dd>
+				
+					
+					<dd>    <a href="#Model.ID">func (m Model) ID() string</a></dd>
+				
+					
+					<dd>    <a href="#Model.LogPrediction">func (m Model) LogPrediction(args LogPredictionArgs) error</a></dd>
+				
+					
+					<dd>    <a href="#Model.LogTrueValue">func (m Model) LogTrueValue(args LogTrueValueArgs) error</a></dd>
+				
+					
+					<dd>    <a href="#Model.Predict">func (m Model) Predict(input []PredictInput, options *PredictOptions) []PredictOutput</a></dd>
+				
+					
+					<dd>    <a href="#Model.PredictOne">func (m Model) PredictOne(input PredictInput, options *PredictOptions) PredictOutput</a></dd>
+				
+			
+				
+				<dd><a href="#MulticlassClassificationPredictOutput">type MulticlassClassificationPredictOutput</a></dd>
+				
+				
+			
+				
+				<dd><a href="#NGram">type NGram</a></dd>
+				
+				
+			
+				
+				<dd><a href="#NormalizedFeatureContribution">type NormalizedFeatureContribution</a></dd>
+				
+				
+			
+				
+				<dd><a href="#OneHotEncodedFeatureContribution">type OneHotEncodedFeatureContribution</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PredictInput">type PredictInput</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PredictOptions">type PredictOptions</a></dd>
+				
+				
+			
+				
+				<dd><a href="#PredictOutput">type PredictOutput</a></dd>
+				
+				
+			
+				
+				<dd><a href="#RegressionPredictOutput">type RegressionPredictOutput</a></dd>
+				
+				
+			
+				
+				<dd><a href="#TaskType">type TaskType</a></dd>
+				
+				
+			
+				
+				<dd><a href="#Unigram">type Unigram</a></dd>
+				
+				
+			
+				
+				<dd><a href="#WordEmbeddingFeatureContribution">type WordEmbeddingFeatureContribution</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html">tangram.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+			<h2 id="pkg-constants">Constants</h2>
+			
+				
+				<pre>const (
+    <span id="RegressionTaskType">RegressionTaskType</span> = <a href="../../../builtin/#iota">iota</a>
+    <span id="BinaryClassificationTaskType">BinaryClassificationTaskType</span>
+    <span id="MulticlassClassificationTaskType">MulticlassClassificationTaskType</span>
+)</pre>
+			
+				
+				<pre>const (
+    <span class="comment">// IdentityFeatureContributionType is the feature contribution type of an identity feature group.</span>
+    <span id="IdentityFeatureContributionType">IdentityFeatureContributionType</span> = <a href="../../../builtin/#iota">iota</a>
+    <span class="comment">// NormalizedFeatureContributionType is the feature contribution type of a normalized feature group.</span>
+    <span id="NormalizedFeatureContributionType">NormalizedFeatureContributionType</span>
+    <span class="comment">// OneHotEncodedFeatureContributionType is the feature contribution type of a one hot encoded feature group.</span>
+    <span id="OneHotEncodedFeatureContributionType">OneHotEncodedFeatureContributionType</span>
+    <span class="comment">// BagOfWordsFeatureContributionType is the feature contribution type of a bag of words feature group.</span>
+    <span id="BagOfWordsFeatureContributionType">BagOfWordsFeatureContributionType</span>
+    <span class="comment">// WordEmbeddingFeatureContributionType is the feature contribution type of a word embedding feature group.</span>
+    <span id="WordEmbeddingFeatureContributionType">WordEmbeddingFeatureContributionType</span>
+)</pre>
+			
+				
+				<pre>const (
+    <span id="UnigramType">UnigramType</span> = <a href="../../../builtin/#iota">iota</a>
+    <span id="BigramType">BigramType</span>
+)</pre>
+			
+		
+		
+		
+			
+			
+			<h2 id="Version">func <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=10292:10313#L227">Version</a>
+				<a class="permalink" href="#Version">¶</a>
+				
+				
+			</h2>
+			<pre>func Version() <a href="../../../builtin/#string">string</a></pre>
+			<p>
+This is the version of libtangram that is in use.
+</p>
+
+			
+			
+
+		
+		
+			
+			
+			<h2 id="BagOfWordsFeatureContribution">type <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=8014:8353#L161">BagOfWordsFeatureContribution</a>
+				<a class="permalink" href="#BagOfWordsFeatureContribution">¶</a>
+				
+				
+			</h2>
+			<p>
+This describes the contribution of a feature from a bag of words feature group.
+</p>
+
+			<pre>type BagOfWordsFeatureContribution struct {
+    <span class="comment">// This is the name of the source column for the feature group.</span>
+<span id="BagOfWordsFeatureContribution.ColumnName"></span>    ColumnName <a href="../../../builtin/#string">string</a>
+    <span class="comment">// This is the ngram for the feature.</span>
+<span id="BagOfWordsFeatureContribution.NGram"></span>    NGram <a href="#NGram">NGram</a>
+    <span class="comment">// This is the value of the feature.</span>
+<span id="BagOfWordsFeatureContribution.FeatureValue"></span>    FeatureValue <a href="../../../builtin/#bool">bool</a>
+    <span class="comment">// This is the amount that the feature contributed to the output.</span>
+<span id="BagOfWordsFeatureContribution.FeatureContributionValue"></span>    FeatureContributionValue <a href="../../../builtin/#float32">float32</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Bigram">type <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=8640:8779#L187">Bigram</a>
+				<a class="permalink" href="#Bigram">¶</a>
+				
+				
+			</h2>
+			<p>
+This describes a bigram ngram.
+</p>
+
+			<pre>type Bigram struct {
+    <span class="comment">// This is the first token in the bigram.</span>
+<span id="Bigram.TokenA"></span>    TokenA <a href="../../../builtin/#string">string</a>
+    <span class="comment">// This is the second token in the bigram.</span>
+<span id="Bigram.TokenB"></span>    TokenB <a href="../../../builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="BinaryClassificationPredictOutput">type <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=3345:3819#L70">BinaryClassificationPredictOutput</a>
+				<a class="permalink" href="#BinaryClassificationPredictOutput">¶</a>
+				
+				
+			</h2>
+			<p>
+`Predict` outputs `BinaryClassificationPredictOutput` when the model&#39;s task is regression.
+</p>
+
+			<pre>type BinaryClassificationPredictOutput struct {
+    <span class="comment">// This is the name of the predicted class.</span>
+<span id="BinaryClassificationPredictOutput.ClassName"></span>    ClassName <a href="../../../builtin/#string">string</a> `json:&#34;className&#34;`
+    <span class="comment">// This is the probability the model assigned to the predicted class.</span>
+<span id="BinaryClassificationPredictOutput.Probability"></span>    Probability <a href="../../../builtin/#float32">float32</a> `json:&#34;probability&#34;`
+    <span class="comment">// If computing feature contributions was enabled in the predict options, this value will explain the model&#39;s output, showing how much each feature contributed to the output.</span>
+<span id="BinaryClassificationPredictOutput.FeatureContributions"></span>    FeatureContributions <a href="#FeatureContributions">FeatureContributions</a> `json:&#34;-&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="FeatureContributionEntry">type <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=6321:6389#L118">FeatureContributionEntry</a>
+				<a class="permalink" href="#FeatureContributionEntry">¶</a>
+				
+				
+			</h2>
+			<p>
+FeatureContribution represents a feature contribution.
+</p>
+
+			<pre>type FeatureContributionEntry interface {
+    <span class="comment">// contains filtered or unexported methods</span>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="FeatureContributionType">type <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=5508:5540#L102">FeatureContributionType</a>
+				<a class="permalink" href="#FeatureContributionType">¶</a>
+				
+				
+			</h2>
+			<p>
+This identifies the type of a feature contribution.
+</p>
+
+			<pre>type FeatureContributionType <a href="../../../builtin/#int">int</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="FeatureContributions">type <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=4931:5451#L92">FeatureContributions</a>
+				<a class="permalink" href="#FeatureContributions">¶</a>
+				
+				
+			</h2>
+			<p>
+This is a description of the feature contributions for the prediction if the task is regression or binary classification, or for a single class if the task is multiclass classification.
+</p>
+
+			<pre>type FeatureContributions struct {
+    <span class="comment">// This is the value the model would output if all features had baseline values.</span>
+<span id="FeatureContributions.BaselineValue"></span>    BaselineValue <a href="../../../builtin/#float32">float32</a>
+    <span class="comment">// This is the value the model output. Any difference from the `baseline_value` is because of the deviation of the features from their baseline values.</span>
+<span id="FeatureContributions.OutputValue"></span>    OutputValue <a href="../../../builtin/#float32">float32</a>
+    <span class="comment">// This list will contain one entry for each of the model&#39;s features. Note that features are computed from columns, so there will likely be more features than columns.</span>
+<span id="FeatureContributions.Entries"></span>    Entries []<a href="#FeatureContributionEntry">FeatureContributionEntry</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="IdentityFeatureContribution">type <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=6806:7094#L129">IdentityFeatureContribution</a>
+				<a class="permalink" href="#IdentityFeatureContribution">¶</a>
+				
+				
+			</h2>
+			<p>
+This describes the contribution of a feature from an identity feature group
+</p>
+
+			<pre>type IdentityFeatureContribution struct {
+    <span class="comment">// This is the name of the source column for the feature group.</span>
+<span id="IdentityFeatureContribution.ColumnName"></span>    ColumnName <a href="../../../builtin/#string">string</a>
+    <span class="comment">// This is the value of the feature.</span>
+<span id="IdentityFeatureContribution.FeatureValue"></span>    FeatureValue <a href="../../../builtin/#float32">float32</a>
+    <span class="comment">// This is the amount that the feature contributed to the output.</span>
+<span id="IdentityFeatureContribution.FeatureContributionValue"></span>    FeatureContributionValue <a href="../../../builtin/#float32">float32</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="LoadModelOptions">type <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=1258:1476#L27">LoadModelOptions</a>
+				<a class="permalink" href="#LoadModelOptions">¶</a>
+				
+				
+			</h2>
+			<p>
+These are the options passed when loading a model.
+</p>
+
+			<pre>type LoadModelOptions struct {
+    <span class="comment">// If you are running the app locally or on your own server, use this field to provide the url to it. If not specified, the default value is https://app.tangram.xyz.</span>
+<span id="LoadModelOptions.TangramURL"></span>    TangramURL <a href="../../../builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="LogPredictionArgs">type <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=9325:9793#L205">LogPredictionArgs</a>
+				<a class="permalink" href="#LogPredictionArgs">¶</a>
+				
+				
+			</h2>
+			<p>
+This is the type of the argument to `model.LogPrediction` and `model.EnqueueLogPrediction` which specifies the details of the prediction to log.
+</p>
+
+			<pre>type LogPredictionArgs struct {
+    <span class="comment">// This is a unique identifier for the prediction, which will associate it with a true value event and allow you to look it up in the app.</span>
+<span id="LogPredictionArgs.Identifier"></span>    Identifier <a href="../../../builtin/#string">string</a>
+    <span class="comment">// This is the same `PredictInput` value that you passed to `model.Predict`.</span>
+<span id="LogPredictionArgs.Input"></span>    Input <a href="#PredictInput">PredictInput</a>
+    <span class="comment">// This is the same `PredictOptions` value that you passed to `model.Predict`.</span>
+<span id="LogPredictionArgs.Options"></span>    Options <a href="#PredictOptions">PredictOptions</a>
+    <span class="comment">// This is the output returned by `model.Predict`.</span>
+<span id="LogPredictionArgs.Output"></span>    Output <a href="#PredictOutput">PredictOutput</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="LogTrueValueArgs">type <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=9941:10202#L217">LogTrueValueArgs</a>
+				<a class="permalink" href="#LogTrueValueArgs">¶</a>
+				
+				
+			</h2>
+			<p>
+This is the type of the argument to `model.LogTrueValue` and `model.EnqueueLogTrueValue` which specifies the details of the true value to log.
+</p>
+
+			<pre>type LogTrueValueArgs struct {
+    <span class="comment">// This is a unique identifier for the prediction, which will associate it with a true value event and allow you to look it up in the app.</span>
+<span id="LogTrueValueArgs.Identifier"></span>    Identifier <a href="../../../builtin/#string">string</a>
+    <span class="comment">// This is the true value for the prediction.</span>
+<span id="LogTrueValueArgs.TrueValue"></span>    TrueValue interface{}
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Model">type <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=1108:1202#L20">Model</a>
+				<a class="permalink" href="#Model">¶</a>
+				
+				
+			</h2>
+			<p>
+Use this struct to load a model, make predictions, and log events to the app.
+</p>
+
+			<pre>type Model struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="LoadModelFromBytes">func <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=11169:11248#L256">LoadModelFromBytes</a>
+					<a class="permalink" href="#LoadModelFromBytes">¶</a>
+					
+					
+				</h3>
+				<pre>func LoadModelFromBytes(data []<a href="../../../builtin/#byte">byte</a>, options *<a href="#LoadModelOptions">LoadModelOptions</a>) (*<a href="#Model">Model</a>, <a href="../../../builtin/#error">error</a>)</pre>
+				<p>
+Load a model from bytes instead of a file. You should use this only if you already have a `.tangram` loaded into memory. Otherwise, use `model.LoadModelFromPath`, which is faster because it memory maps the file.
+</p>
+
+				
+				
+			
+				
+				<h3 id="LoadModelFromPath">func <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=10472:10550#L235">LoadModelFromPath</a>
+					<a class="permalink" href="#LoadModelFromPath">¶</a>
+					
+					
+				</h3>
+				<pre>func LoadModelFromPath(path <a href="../../../builtin/#string">string</a>, options *<a href="#LoadModelOptions">LoadModelOptions</a>) (*<a href="#Model">Model</a>, <a href="../../../builtin/#error">error</a>)</pre>
+				<p>
+Load a model from a `.tangram` file at `path`.
+</p>
+
+				
+				
+			
+
+			
+				
+				<h3 id="Model.Destroy">func (Model) <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=11797:11821#L278">Destroy</a>
+					<a class="permalink" href="#Model.Destroy">¶</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Model">Model</a>) Destroy()</pre>
+				<p>
+Destroy frees up the memory used by the model. You should call this with defer after loading your model.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Model.EnqueueLogPrediction">func (Model) <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=27887:27946#L649">EnqueueLogPrediction</a>
+					<a class="permalink" href="#Model.EnqueueLogPrediction">¶</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Model">Model</a>) EnqueueLogPrediction(args <a href="#LogPredictionArgs">LogPredictionArgs</a>)</pre>
+				<p>
+Add a prediction event to the queue. Remember to call `model.FlushLogQueue` at a later point to send the event to the app.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Model.EnqueueLogTrueValue">func (Model) <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=28359:28416#L659">EnqueueLogTrueValue</a>
+					<a class="permalink" href="#Model.EnqueueLogTrueValue">¶</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Model">Model</a>) EnqueueLogTrueValue(args <a href="#LogTrueValueArgs">LogTrueValueArgs</a>)</pre>
+				<p>
+Add a true value event to the queue. Remember to call `model.FlushLogQueue` at a later point to send the event to the app.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Model.FlushLogQueue">func (Model) <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=28523:28559#L664">FlushLogQueue</a>
+					<a class="permalink" href="#Model.FlushLogQueue">¶</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Model">Model</a>) FlushLogQueue() <a href="../../../builtin/#error">error</a></pre>
+				<p>
+Send all events in the queue to the app.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Model.ID">func (Model) <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=11891:11917#L283">ID</a>
+					<a class="permalink" href="#Model.ID">¶</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Model">Model</a>) ID() <a href="../../../builtin/#string">string</a></pre>
+				<p>
+Retrieve the model&#39;s id.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Model.LogPrediction">func (Model) <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=27653:27711#L644">LogPrediction</a>
+					<a class="permalink" href="#Model.LogPrediction">¶</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Model">Model</a>) LogPrediction(args <a href="#LogPredictionArgs">LogPredictionArgs</a>) <a href="../../../builtin/#error">error</a></pre>
+				<p>
+Send a prediction event to the app. If you want to batch events, you can use `model.EnqueueLogPrediction` instead.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Model.LogTrueValue">func (Model) <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=28128:28184#L654">LogTrueValue</a>
+					<a class="permalink" href="#Model.LogTrueValue">¶</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Model">Model</a>) LogTrueValue(args <a href="#LogTrueValueArgs">LogTrueValueArgs</a>) <a href="../../../builtin/#error">error</a></pre>
+				<p>
+Send a true value event to the app. If you want to batch events, you can use `model.EnqueueLogTrueValue` instead.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Model.Predict">func (Model) <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=14375:14460#L365">Predict</a>
+					<a class="permalink" href="#Model.Predict">¶</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Model">Model</a>) Predict(input []<a href="#PredictInput">PredictInput</a>, options *<a href="#PredictOptions">PredictOptions</a>) []<a href="#PredictOutput">PredictOutput</a></pre>
+				<p>
+Make a prediction with multiple inputs.
+</p>
+
+				
+				
+				
+			
+				
+				<h3 id="Model.PredictOne">func (Model) <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=13975:14059#L352">PredictOne</a>
+					<a class="permalink" href="#Model.PredictOne">¶</a>
+					
+					
+				</h3>
+				<pre>func (m <a href="#Model">Model</a>) PredictOne(input <a href="#PredictInput">PredictInput</a>, options *<a href="#PredictOptions">PredictOptions</a>) <a href="#PredictOutput">PredictOutput</a></pre>
+				<p>
+Make a prediction with a single input.
+</p>
+
+				
+				
+				
+			
+		
+			
+			
+			<h2 id="MulticlassClassificationPredictOutput">type <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=3919:4740#L80">MulticlassClassificationPredictOutput</a>
+				<a class="permalink" href="#MulticlassClassificationPredictOutput">¶</a>
+				
+				
+			</h2>
+			<p>
+`Predict` outputs `MulticlassClassificationPredictOutput` when the model&#39;s task is regression.
+</p>
+
+			<pre>type MulticlassClassificationPredictOutput struct {
+    <span class="comment">// This is the name of the predicted class.</span>
+<span id="MulticlassClassificationPredictOutput.ClassName"></span>    ClassName <a href="../../../builtin/#string">string</a> `json:&#34;className`
+    <span class="comment">// This is the probability the model assigned to the predicted class.</span>
+<span id="MulticlassClassificationPredictOutput.Probability"></span>    Probability <a href="../../../builtin/#float32">float32</a> `json:&#34;probability&#34;`
+    <span class="comment">// This value maps from class names to the probability the model assigned to each class.</span>
+<span id="MulticlassClassificationPredictOutput.Probabilities"></span>    Probabilities map[<a href="../../../builtin/#string">string</a>]<a href="../../../builtin/#float32">float32</a> `json:&#34;probabilities&#34;`
+    <span class="comment">// If computing feature contributions was enabled in the predict options, this value will explain the model&#39;s output, showing how much each feature contributed to the output. This value maps from class names to `FeatureContributions` values for each class. The class with the `FeatureContributions` value with the highest `output_value` is the predicted class.</span>
+<span id="MulticlassClassificationPredictOutput.FeatureContributions"></span>    FeatureContributions map[<a href="../../../builtin/#string">string</a>]<a href="#FeatureContributions">FeatureContributions</a> `json:&#34;-&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="NGram">type <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=8415:8450#L173">NGram</a>
+				<a class="permalink" href="#NGram">¶</a>
+				
+				
+			</h2>
+			<p>
+NGram is the token type in a bag of words feature group.
+</p>
+
+			<pre>type NGram interface {
+    <span class="comment">// contains filtered or unexported methods</span>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="NormalizedFeatureContribution">type <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=7177:7467#L139">NormalizedFeatureContribution</a>
+				<a class="permalink" href="#NormalizedFeatureContribution">¶</a>
+				
+				
+			</h2>
+			<p>
+This describes the contribution of a feature from a normalized feature group.
+</p>
+
+			<pre>type NormalizedFeatureContribution struct {
+    <span class="comment">// This is the name of the source column for the feature group.</span>
+<span id="NormalizedFeatureContribution.ColumnName"></span>    ColumnName <a href="../../../builtin/#string">string</a>
+    <span class="comment">// This is the value of the feature.</span>
+<span id="NormalizedFeatureContribution.FeatureValue"></span>    FeatureValue <a href="../../../builtin/#float32">float32</a>
+    <span class="comment">// This is the amount that the feature contributed to the output.</span>
+<span id="NormalizedFeatureContribution.FeatureContributionValue"></span>    FeatureContributionValue <a href="../../../builtin/#float32">float32</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="OneHotEncodedFeatureContribution">type <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=7555:7929#L149">OneHotEncodedFeatureContribution</a>
+				<a class="permalink" href="#OneHotEncodedFeatureContribution">¶</a>
+				
+				
+			</h2>
+			<p>
+This describes the contribution of a feature from a one hot encoded feature group.
+</p>
+
+			<pre>type OneHotEncodedFeatureContribution struct {
+    <span class="comment">// This is the name of the source column for the feature group.</span>
+<span id="OneHotEncodedFeatureContribution.ColumnName"></span>    ColumnName <a href="../../../builtin/#string">string</a>
+    <span class="comment">// This is the enum variant the feature indicates the presence of.</span>
+<span id="OneHotEncodedFeatureContribution.Variant"></span>    Variant <a href="../../../builtin/#string">string</a>
+    <span class="comment">// This is the value of the feature.</span>
+<span id="OneHotEncodedFeatureContribution.FeatureValue"></span>    FeatureValue <a href="../../../builtin/#bool">bool</a>
+    <span class="comment">// This is the amount that the feature contributed to the output.</span>
+<span id="OneHotEncodedFeatureContribution.FeatureContributionValue"></span>    FeatureContributionValue <a href="../../../builtin/#float32">float32</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="PredictInput">type <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=2213:2253#L41">PredictInput</a>
+				<a class="permalink" href="#PredictInput">¶</a>
+				
+				
+			</h2>
+			<p>
+This is the input type of `Predict`. A predict input is a map from strings to strings or floats. The keys should match the columns in the CSV file you trained your model with.
+</p>
+
+			<pre>type PredictInput map[<a href="../../../builtin/#string">string</a>]interface{}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="PredictOptions">type <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=1524:2032#L33">PredictOptions</a>
+				<a class="permalink" href="#PredictOptions">¶</a>
+				
+				
+			</h2>
+			<p>
+These are the options passed to `Predict`.
+</p>
+
+			<pre>type PredictOptions struct {
+    <span class="comment">// If your model is a binary classifier, use this field to make predictions using a threshold chosen on the tuning page of the app. The default value is `0.5`.</span>
+<span id="PredictOptions.Threshold"></span>    Threshold <a href="../../../builtin/#float32">float32</a> `json:&#34;threshold&#34;`
+    <span class="comment">// Computing feature contributions is disabled by default. If you set this field to `true`, you will be able to access the feature contributions with the `feature_contributions` field of the predict output.</span>
+<span id="PredictOptions.ComputeFeatureContributions"></span>    ComputeFeatureContributions <a href="../../../builtin/#bool">bool</a> `json:&#34;computeFeatureContributions&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="PredictOutput">type <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=2581:2632#L53">PredictOutput</a>
+				<a class="permalink" href="#PredictOutput">¶</a>
+				
+				
+			</h2>
+			<p>
+This is the return type of `Predict`.
+</p>
+
+			<pre>type PredictOutput interface {
+    <span class="comment">// contains filtered or unexported methods</span>
+}</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="RegressionPredictOutput">type <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=2917:3249#L62">RegressionPredictOutput</a>
+				<a class="permalink" href="#RegressionPredictOutput">¶</a>
+				
+				
+			</h2>
+			<p>
+`Predict` outputs `RegressionPredictOutput` when the model&#39;s task is regression.
+</p>
+
+			<pre>type RegressionPredictOutput struct {
+    <span class="comment">// This is the predicted value.</span>
+<span id="RegressionPredictOutput.Value"></span>    Value <a href="../../../builtin/#float32">float32</a> `json:&#34;value&#34;`
+    <span class="comment">// If computing feature contributions was enabled in the predict options, this value will explain the model&#39;s output, showing how much each feature contributed to the output.</span>
+<span id="RegressionPredictOutput.FeatureContributions"></span>    FeatureContributions <a href="#FeatureContributions">FeatureContributions</a> `json:&#34;-&#34;`
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="TaskType">type <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=2419:2436#L44">TaskType</a>
+				<a class="permalink" href="#TaskType">¶</a>
+				
+				
+			</h2>
+			<p>
+TaskType is the type of the task corresponding to the model task, one of RegressionTaskType, BinaryClassificationTaskType, and MulticlassClassificationTaskType.
+</p>
+
+			<pre>type TaskType <a href="../../../builtin/#int">int</a></pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="Unigram">type <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=8544:8604#L181">Unigram</a>
+				<a class="permalink" href="#Unigram">¶</a>
+				
+				
+			</h2>
+			<p>
+This describes a unigram ngram.
+</p>
+
+			<pre>type Unigram struct {
+    <span class="comment">// This is the token.</span>
+<span id="Unigram.Token"></span>    Token <a href="../../../builtin/#string">string</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+			
+			
+			<h2 id="WordEmbeddingFeatureContribution">type <a href="../../../src/github.com/tangramxyz/tangram-go/tangram.go.html?s=8866:9175#L195">WordEmbeddingFeatureContribution</a>
+				<a class="permalink" href="#WordEmbeddingFeatureContribution">¶</a>
+				
+				
+			</h2>
+			<p>
+This describes the contribution of a feature from a word embedding feature group.
+</p>
+
+			<pre>type WordEmbeddingFeatureContribution struct {
+    <span class="comment">// This is the name of the source column for the feature group.</span>
+<span id="WordEmbeddingFeatureContribution.ColumnName"></span>    ColumnName <a href="../../../builtin/#string">string</a>
+    <span class="comment">// This is the index of the feature in the word embedding.</span>
+<span id="WordEmbeddingFeatureContribution.ValueIndex"></span>    ValueIndex <a href="../../../builtin/#int">int</a>
+    <span class="comment">// This is the amount that the feature contributed to the output.</span>
+<span id="WordEmbeddingFeatureContribution.FeatureContributionValue"></span>    FeatureContributionValue <a href="../../../builtin/#float32">float32</a>
+}
+</pre>
+
+			
+
+			
+
+			
+			
+			
+
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+	
+	
+		<h2 id="pkg-subdirectories">Subdirectories</h2>
+	
+	<div class="pkg-dir">
+		<table>
+			<tbody><tr>
+				<th class="pkg-name">Name</th>
+				<th class="pkg-synopsis">Synopsis</th>
+			</tr>
+
+			
+			<tr>
+				<td colspan="2"><a href="..">..</a></td>
+			</tr>
+			
+
+			
+				<tr>
+				
+					<td class="pkg-name" style="padding-left: 0px;">
+						<a href="examples/">examples</a>
+					</td>
+				
+					<td class="pkg-synopsis">
+						
+					</td>
+				</tr>
+			
+		</tbody></table>
+	</div>
+
+
+
+<div id="footer"><a href="../../../docs.zip">Download docs.zip</a> to browse offline - Generated by <a href="https://godoc.org/golang.org/x/tools/godoc" target="_blank">godoc</a> + <a href="https://code.rocketnine.space/tslocum/godoc-static" target="_blank">godoc-static</a></div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+
+
+</body></html>

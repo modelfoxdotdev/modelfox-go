@@ -11,6 +11,7 @@ typedef enum {
   NORMALIZED,
   ONE_HOT_ENCODED,
   BAG_OF_WORDS,
+  BAG_OF_WORDS_COSINE_SIMILARITY,
   WORD_EMBEDDING,
 } tangram_feature_contribution_entry_type;
 
@@ -26,6 +27,9 @@ typedef enum {
   BINARY_CLASSIFICATION,
   MULTICLASS_CLASSIFICATION,
 } tangram_task;
+
+/// `tangram_bag_of_words_cosine_similarity_feature_contribution` is an opaque handle to a single tangram bag of words cosine similarity feature contribution.
+typedef struct tangram_bag_of_words_cosine_similarity_feature_contribution tangram_bag_of_words_cosine_similarity_feature_contribution;
 
 /// `tangram_bag_of_words_feature_contribution` is an opaque handle to a single tangram bag of words feature contribution.
 typedef struct tangram_bag_of_words_feature_contribution tangram_bag_of_words_feature_contribution;
@@ -289,6 +293,10 @@ void tangram_feature_contribution_entry_as_one_hot_encoded(const tangram_feature
 void tangram_feature_contribution_entry_as_bag_of_words(const tangram_feature_contribution_entry *feature_contribution_entry,
                                                         const tangram_bag_of_words_feature_contribution **feature_contribution_ptr);
 
+/// Cast the feature contribution entry as `tangram_bag_of_words_cosine_similarity_feature_contribution`. If this feature contribution is not a bag of words cosine similarity feature contribution, null will be written to `feature_contribution_ouput_ptr`.
+void tangram_feature_contribution_entry_as_bag_of_words_cosine_similarity(const tangram_feature_contribution_entry *feature_contribution_entry,
+                                                                          const tangram_bag_of_words_cosine_similarity_feature_contribution **feature_contribution_ptr);
+
 /// Cast the feature contribution entry as `tangram_word_embedding_feature_contribution`. If this feature contribution is not a word embedding feature contribution, null will be written to `feature_contribution_ouput_ptr`.
 void tangram_feature_contribution_entry_as_word_embedding(const tangram_feature_contribution_entry *feature_contribution_entry,
                                                           const tangram_word_embedding_feature_contribution **feature_contribution_ptr);
@@ -355,11 +363,27 @@ void tangram_bigram_get_token_b(const tangram_ngram *ngram, tangram_string_view 
 
 /// Retrieve the feature value.
 void tangram_bag_of_words_feature_contribution_get_feature_value(const tangram_bag_of_words_feature_contribution *feature_contribution,
-                                                                 bool *feature_value);
+                                                                 float *feature_value);
 
 /// Retrieve the feature contribution value.
 void tangram_bag_of_words_feature_contribution_get_feature_contribution_value(const tangram_bag_of_words_feature_contribution *feature_contribution,
                                                                               float *feature_contribution_value);
+
+/// Retrieve the column name a.
+void tangram_bag_of_words_cosine_similarity_feature_contribution_get_column_name_a(const tangram_bag_of_words_cosine_similarity_feature_contribution *feature_contribution,
+                                                                                   tangram_string_view *column_name_ptr);
+
+/// Retrieve the column name b.
+void tangram_bag_of_words_cosine_similarity_feature_contribution_get_column_name_b(const tangram_bag_of_words_cosine_similarity_feature_contribution *feature_contribution,
+                                                                                   tangram_string_view *column_name_ptr);
+
+/// Retrieve the feature value.
+void tangram_bag_of_words_cosine_similarity_feature_contribution_get_feature_value(const tangram_bag_of_words_cosine_similarity_feature_contribution *feature_contribution,
+                                                                                   float *feature_value);
+
+/// Retrieve the feature contribution value.
+void tangram_bag_of_words_cosine_similarity_feature_contribution_get_feature_contribution_value(const tangram_bag_of_words_cosine_similarity_feature_contribution *feature_contribution,
+                                                                                                float *feature_contribution_value);
 
 /// Retrieve the column name.
 void tangram_word_embedding_feature_contribution_get_column_name(const tangram_word_embedding_feature_contribution *feature_contribution,
