@@ -35,7 +35,9 @@ For more information, [read the docs](https://www.tangram.xyz/docs).
 Tangram for Go is currently supported on the following combinations of `$GOARCH` and `$GOOS`:
 
 - `amd64` `linux`
+- `arm64` `linux`
 - `amd64` `darwin`
+- `arm64` `darwin`
 - `amd64` `windows`
 
 Are you interested in another platform? [Open an issue](https://github.com/tangramxyz/tangram/issues/new) or send us an email at [help@tangram.xyz](mailto:help@tangram.xyz).
@@ -44,26 +46,4 @@ Tangram for Go links to the tangram C library, so cgo is required. The tangram C
 
 ## Examples
 
-This source for this module contains two examples, `examples/predict` and `examples/monitor`.
-
-### Basic
-
-The basic example demonstrates loading a model from a `.tangram` file and making a prediction.
-
-```
-$ go run examples/basic.go
-```
-
-### Advanced
-
-The advanced example demonstrates logging predictions and true values to the Tangram app. Before running the example, run `tangram app` to start the app running locally, open `http://localhost:8080` in your browser, and upload the file `examples/heart_disease.tangram` to it.
-
-To run the example:
-
-```
-$ TANGRAM_URL=http://localhost:8080 go run examples/advanced.go
-```
-
-Now if you refresh the production stats or production metrics tabs for the model you uploaded, you should see predictions and true values.
-
-For more information, [read the docs](https://www.tangram.xyz/docs).
+The source for this package contains a number of examples in the `examples` directory. Each example has a `README.md` explaining how to run it.
