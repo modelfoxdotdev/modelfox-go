@@ -1,5 +1,3 @@
-github.com/tangramdotdev/tangram-go v0.4.0 h1:wtYEBKRHaOpf8/rdb2pLj9Q021dX84uOAv8aM1Sic2w=
-github.com/tangramdotdev/tangram-go v0.4.0/go.mod h1:BBlANkr5goTjTSiVlRHQrfbSp1bhCGJdj8vDgc8fY04=
 github.com/tangramdotdev/tangram-go v0.6.1 h1:N6MBGgHL8qk6OxxcH5LaWu1RE6vywOebm6ztYLG9eLY=
 github.com/tangramdotdev/tangram-go v0.6.1/go.mod h1:JSaLXDChpuklOeTVW7QkUiEoCcVcCjo8JQjQEx7PuWE=
 github.com/yuin/goldmark v1.2.1/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9decYSb74=
